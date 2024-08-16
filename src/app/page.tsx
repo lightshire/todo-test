@@ -1,15 +1,16 @@
-import {Input} from "@/components/ui/input";
-import {Button} from "@/components/ui/button";
+'use client'
+
 import TodoForm from "@/modules/todo/components/TodoForm";
 import TodoList from "@/modules/todo/components/TodoList";
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 
+
+const queryClient = new QueryClient();
 export default function Home() {
-
-
   return (
-      <div>
-        <TodoForm />
-        <TodoList />
-      </div>
+      <QueryClientProvider client={queryClient}>
+          <TodoForm />
+          <TodoList />
+      </QueryClientProvider>
   );
 }

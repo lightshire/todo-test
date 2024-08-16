@@ -7,12 +7,8 @@ import {useToast} from "@/components/ui/use-toast";
 
 
 const TodoList = () => {
-    const { fetchTodos, todos, isLoading, isError, isSuccess } = useGetAllTodos()
+    const { todos, isLoading, isError, isSuccess } = useGetAllTodos()
     const { toast } = useToast();
-
-    useEffect(() => {
-        fetchTodos();
-    }, []);
 
     useEffect(() => {
         if (isError) {
